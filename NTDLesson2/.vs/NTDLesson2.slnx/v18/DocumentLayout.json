@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00A4A284-532E-4968-A785-AB86AA815ABF}|..\\NTDLesson2Dmeo\\NTDLesson2Dmeo.csproj|d:\\ntd k24cnt1.net\\k24cnt1_\\ntdlesson2dmeo\\views\\ntdproduct\\getproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00A4A284-532E-4968-A785-AB86AA815ABF}|..\\NTDLesson2Dmeo\\NTDLesson2Dmeo.csproj|d:\\ntd k24cnt1.net\\k24cnt1_\\ntdlesson2dmeo\\models\\ntdproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00A4A284-532E-4968-A785-AB86AA815ABF}|..\\NTDLesson2Dmeo\\NTDLesson2Dmeo.csproj|d:\\ntd k24cnt1.net\\k24cnt1_\\ntdlesson2dmeo\\controllers\\ntdproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NTDProductController.cs",
+              "DocumentMoniker": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\Controllers\\NTDProductController.cs",
+              "RelativeDocumentMoniker": "..\\NTDLesson2Dmeo\\Controllers\\NTDProductController.cs",
+              "ToolTip": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\Controllers\\NTDProductController.cs",
+              "RelativeToolTip": "..\\NTDLesson2Dmeo\\Controllers\\NTDProductController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-27T07:44:56.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NTDProduct.cs",
+              "DocumentMoniker": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\Models\\NTDProduct.cs",
+              "RelativeDocumentMoniker": "..\\NTDLesson2Dmeo\\Models\\NTDProduct.cs",
+              "ToolTip": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\Models\\NTDProduct.cs",
+              "RelativeToolTip": "..\\NTDLesson2Dmeo\\Models\\NTDProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-27T07:44:52.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetProduct.cshtml",
+              "DocumentMoniker": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\Views\\NTDProduct\\GetProduct.cshtml",
+              "RelativeDocumentMoniker": "..\\NTDLesson2Dmeo\\Views\\NTDProduct\\GetProduct.cshtml",
+              "ToolTip": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\Views\\NTDProduct\\GetProduct.cshtml",
+              "RelativeToolTip": "..\\NTDLesson2Dmeo\\Views\\NTDProduct\\GetProduct.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-27T07:43:11.301Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
