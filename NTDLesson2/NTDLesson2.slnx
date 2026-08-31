@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="../NTDLesson2Dmeo/NTDLesson2Dmeo.csproj" Id="00a4a284-532e-4968-a785-ab86aa815abf" />
+  <Project Path="../NTDLesson2Dmeo/NTDLesson2Demo.csproj" Id="00a4a284-532e-4968-a785-ab86aa815abf" />
   <Project Path="NTDLesson2.csproj" />
 </Solution>

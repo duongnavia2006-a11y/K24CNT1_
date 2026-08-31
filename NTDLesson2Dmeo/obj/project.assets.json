@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\NTDLesson2Dmeo.csproj",
-      "projectName": "NTDLesson2Dmeo",
-      "projectPath": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\NTDLesson2Dmeo.csproj",
+      "projectUniqueName": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\NTDLesson2Demo.csproj",
+      "projectName": "NTDLesson2Demo",
+      "projectPath": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\NTDLesson2Demo.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\NTD K24CNT1.Net\\K24CNT1_\\NTDLesson2Dmeo\\obj\\",
       "projectStyle": "PackageReference",
