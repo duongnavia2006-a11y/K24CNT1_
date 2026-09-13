@@ -1,0 +1,51 @@
+@model NtdLesson07Models.Models.DataModels.NtdMember
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card p-3">
+    <h1>Thêm mới thành viên</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="NtdMemberId" class="control-label"></label>
+                    <input asp-for="NtdMemberId" class="form-control" />
+                    <span asp-validation-for="NtdMemberId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NtdUserName" class="control-label"></label>
+                    <input asp-for="NtdUserName" class="form-control" />
+                    <span asp-validation-for="NtdUserName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NtdPassword" class="control-label"></label>
+                    <input asp-for="NtdPassword" class="form-control" />
+                    <span asp-validation-for="NtdPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NtdFullName" class="control-label"></label>
+                    <input asp-for="NtdFullName" class="form-control" />
+                    <span asp-validation-for="NtdFullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NtdEmail" class="control-label"></label>
+                    <input asp-for="NtdEmail" class="form-control" />
+                    <span asp-validation-for="NtdEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group my-2">
+                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
