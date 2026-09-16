@@ -1,0 +1,70 @@
+﻿@model IEnumerable<NtdLesson08Models.Models.NtdMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="NtdCreate">Thêm  mới</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NtdMemberId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NtdUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NtdPassword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NtdFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NtdEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NtdPhone)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NtdMemberId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NtdUserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NtdPassword)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NtdFullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NtdEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NtdPhone)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Sửa", "NtdEdit", new { id = item.NtdMemberId }) |
+                            @Html.ActionLink("Xem chi tiết", "NtdDetails", new { id = item.NtdMemberId }) |
+                            @Html.ActionLink("Xóa", "NtdDelete", new { id = item.NtdMemberId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
