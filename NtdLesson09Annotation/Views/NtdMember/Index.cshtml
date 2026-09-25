@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Danh sách thành viên";
+    int num = 0;
+}
+
+<div class="card">
+
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card-body">
+
+        <a asp-controller="NtdMember"
+           asp-action="Create"
+           class="btn btn-primary mb-3">
+            Thêm mới thành viên
+        </a>
+
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th>#No.</th>
+                    <th>Member Id</th>
+                    <th>User Name</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var member in ViewBag.Members)
+                {
+                    num++;
+
+                    <tr>
+                        <td>@num</td>
+                        <td>@member.NtdMemberId</td>
+                        <td>@member.NtdUserName</td>
+                        <td>@member.NtdFullName</td>
+                        <td>@member.NtdEmail</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

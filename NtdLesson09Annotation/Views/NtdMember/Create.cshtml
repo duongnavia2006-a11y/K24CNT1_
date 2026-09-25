@@ -1,0 +1,87 @@
+﻿@model NtdLesson09Annotation.Models.DataViewModels.NtdMemberRegister
+
+@{
+    ViewData["Title"] = "Thêm mới thành viên";
+}
+
+<div class="card">
+
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-controller="NtdMember"
+              asp-action="Create"
+              method="post">
+
+            <div class="mb-3">
+                <label asp-for="NtdUserName" class="form-label">
+                    User Name
+                </label>
+
+                <input asp-for="NtdUserName"
+                       class="form-control" />
+
+                <span asp-validation-for="NtdUserName"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NtdPassword" class="form-label">
+                    Password
+                </label>
+
+                <input asp-for="NtdPassword"
+                       type="password"
+                       class="form-control" />
+
+                <span asp-validation-for="NtdPassword"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NtdFullName" class="form-label">
+                    Full Name
+                </label>
+
+                <input asp-for="NtdFullName"
+                       class="form-control" />
+
+                <span asp-validation-for="NtdFullName"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NtdEmail" class="form-label">
+                    Email
+                </label>
+
+                <input asp-for="NtdEmail"
+                       type="email"
+                       class="form-control" />
+
+                <span asp-validation-for="NtdEmail"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Thêm mới
+            </button>
+
+            <a asp-controller="NtdMember"
+               asp-action="Index"
+               class="btn btn-secondary">
+                Quay lại
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
