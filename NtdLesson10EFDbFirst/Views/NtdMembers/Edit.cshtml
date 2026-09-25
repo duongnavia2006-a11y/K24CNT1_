@@ -1,0 +1,13 @@
+@model NtdMember
+<h1>Edit</h1>
+<form asp-action="Edit">
+<input type="hidden" asp-for="NtdMemberId" />
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-2"><label asp-for="NtdUserName"></label><input asp-for="NtdUserName" class="form-control"/></div>
+<div class="mb-2"><label asp-for="NtdPassword"></label><input asp-for="NtdPassword" class="form-control"/></div>
+<div class="mb-2"><label asp-for="NtdFullName"></label><input asp-for="NtdFullName" class="form-control"/></div>
+<div class="mb-2"><label asp-for="NtdEmail"></label><input asp-for="NtdEmail" class="form-control"/></div>
+<div class="mb-2"><label asp-for="NtdPhone"></label><input asp-for="NtdPhone" class="form-control"/></div>
+<div class="form-check mb-2"><input asp-for="NtdStatus" class="form-check-input"/><label asp-for="NtdStatus" class="form-check-label"></label></div>
+<input type="submit" value="Save" class="btn btn-primary"/> <a asp-action="Index">Back to List</a>
+</form>

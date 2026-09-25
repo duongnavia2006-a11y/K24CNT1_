@@ -1,0 +1,12 @@
+@model NtdMember
+<h1>Create</h1>
+<form asp-action="Create">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-2"><label asp-for="NtdUserName"></label><input asp-for="NtdUserName" class="form-control"/><span asp-validation-for="NtdUserName" class="text-danger"></span></div>
+<div class="mb-2"><label asp-for="NtdPassword"></label><input asp-for="NtdPassword" class="form-control"/><span asp-validation-for="NtdPassword" class="text-danger"></span></div>
+<div class="mb-2"><label asp-for="NtdFullName"></label><input asp-for="NtdFullName" class="form-control"/><span asp-validation-for="NtdFullName" class="text-danger"></span></div>
+<div class="mb-2"><label asp-for="NtdEmail"></label><input asp-for="NtdEmail" class="form-control"/><span asp-validation-for="NtdEmail" class="text-danger"></span></div>
+<div class="mb-2"><label asp-for="NtdPhone"></label><input asp-for="NtdPhone" class="form-control"/></div>
+<div class="form-check mb-2"><input asp-for="NtdStatus" class="form-check-input"/><label asp-for="NtdStatus" class="form-check-label"></label></div>
+<input type="submit" value="Create" class="btn btn-primary"/> <a asp-action="Index">Back to List</a>
+</form>

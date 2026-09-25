@@ -1,0 +1,3 @@
+-- Ban nay khong can chay SQL Server.
+-- Ung dung tu dong tao file NtdLesson10EFDbFirst.db khi chay lan dau.
+-- Du lieu mau cung duoc tu dong tao trong Program.cs.

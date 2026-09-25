@@ -1,0 +1,14 @@
+@model IEnumerable<NtdMember>
+@{ ViewData["Title"] = "Index"; }
+<h1>Index</h1>
+<p><a asp-action="Create">Create New</a></p>
+<table class="table">
+<thead><tr><th>NtdUserName</th><th>NtdPassword</th><th>NtdFullName</th><th>NtdEmail</th><th>NtdPhone</th><th>NtdStatus</th><th></th></tr></thead>
+<tbody>
+@foreach (var item in Model) {
+<tr>
+<td>@item.NtdUserName</td><td>@item.NtdPassword</td><td>@item.NtdFullName</td><td>@item.NtdEmail</td><td>@item.NtdPhone</td><td>@item.NtdStatus</td>
+<td><a asp-action="Edit" asp-route-id="@item.NtdMemberId">Edit</a> | <a asp-action="Details" asp-route-id="@item.NtdMemberId">Details</a> | <a asp-action="Delete" asp-route-id="@item.NtdMemberId">Delete</a></td>
+</tr>
+}
+</tbody></table>

@@ -1,0 +1,11 @@
+@model NtdMember
+<h1>Details</h1>
+<dl class="row">
+<dt class="col-sm-3">NtdUserName</dt><dd class="col-sm-9">@Model.NtdUserName</dd>
+<dt class="col-sm-3">NtdPassword</dt><dd class="col-sm-9">@Model.NtdPassword</dd>
+<dt class="col-sm-3">NtdFullName</dt><dd class="col-sm-9">@Model.NtdFullName</dd>
+<dt class="col-sm-3">NtdEmail</dt><dd class="col-sm-9">@Model.NtdEmail</dd>
+<dt class="col-sm-3">NtdPhone</dt><dd class="col-sm-9">@Model.NtdPhone</dd>
+<dt class="col-sm-3">NtdStatus</dt><dd class="col-sm-9">@Model.NtdStatus</dd>
+</dl>
+<a asp-action="Edit" asp-route-id="@Model.NtdMemberId">Edit</a> | <a asp-action="Index">Back to List</a>
