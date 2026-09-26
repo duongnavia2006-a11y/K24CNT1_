@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "Trang chủ - Bài thi ASP.NET Core MVC";
+}
+
+<div class="py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold text-primary mb-3">
+            BÀI THI KẾT THÚC HỌC PHẦN
+        </h1>
+        <p class="lead text-secondary mb-4">
+            Môn: <strong>Phát triển ứng dụng với ASP.NET Core MVC</strong><br />
+            Mô hình: <strong>Entity Framework Core Database First</strong>
+        </p>
+
+        <div class="row justify-content-center g-4 mt-2">
+            <div class="col-md-5">
+                <div class="card h-100 shadow-sm border-0 rounded-4 text-start">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary text-white rounded-3 p-3 me-3">
+                                <i class="bi bi-person-badge fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title fw-bold mb-0">Thông tin sinh viên</h5>
+                                <small class="text-muted">Action: NtdAbout</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Xem profile card đầy đủ thông tin cá nhân: Họ tên, Mã sinh viên, Lớp học, Email, Số điện thoại.
+                        </p>
+                        <a asp-controller="Home" asp-action="NtdAbout" class="btn btn-outline-primary">
+                            Xem thông tin cá nhân &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card h-100 shadow-sm border-0 rounded-4 text-start">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success text-white rounded-3 p-3 me-3">
+                                <i class="bi bi-people fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title fw-bold mb-0">Quản lý sinh viên</h5>
+                                <small class="text-muted">Controller: NtdStudentsController</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Chức năng CRUD (Xem danh sách, Thêm mới, Sửa, Chi tiết, Xóa) trên bảng dữ liệu NtdStudent.
+                        </p>
+                        <a asp-controller="NtdStudents" asp-action="Index" class="btn btn-outline-success">
+                            Quản lý danh sách sinh viên &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 p-4 bg-white rounded-4 shadow-sm text-start mx-auto" style="max-width: 800px;">
+            <h6 class="fw-bold text-dark border-bottom pb-2 mb-3">
+                <i class="bi bi-info-circle text-primary me-2"></i>Thông tin thí sinh thực hiện:
+            </h6>
+            <div class="row small">
+                <div class="col-sm-6 mb-2"><strong>Họ và tên:</strong> Nguyễn Tùng Dương</div>
+                <div class="col-sm-6 mb-2"><strong>Mã số sinh viên:</strong> 2410900017</div>
+                <div class="col-sm-6 mb-2"><strong>Lớp:</strong> K24CNT1</div>
+                <div class="col-sm-6 mb-2"><strong>Ký hiệu (Hvt):</strong> Ntd</div>
+                <div class="col-sm-6 mb-2"><strong>SQL Server:</strong> DUONG</div>
+                <div class="col-sm-6 mb-2"><strong>Database:</strong> NguyenTungDuong2410900017_Db / NtdStudent_2410900017_Db</div>
+            </div>
+        </div>
+    </div>
+</div>

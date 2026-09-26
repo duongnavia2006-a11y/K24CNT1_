@@ -1,0 +1,88 @@
+@model NguyenTungDuong2410900017_exam.Models.NtdStudent
+
+@{
+    ViewData["Title"] = "Chi tiết sinh viên";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-info text-white py-3">
+                    <h5 class="card-title mb-0 fw-bold">
+                        <i class="bi bi-info-circle-fill me-2"></i>Chi tiết thông tin sinh viên #@Model.Id
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">Mã sinh viên (ID):</dt>
+                        <dd class="col-sm-8 fw-bold">#@Model.Id</dd>
+
+                        <dt class="col-sm-4 text-muted">Họ và tên:</dt>
+                        <dd class="col-sm-8 fw-semibold text-primary fs-5">@Model.NtdName</dd>
+
+                        <dt class="col-sm-4 text-muted">Giới tính:</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.NtdGender)
+                            {
+                                <span class="badge bg-primary px-3 py-2">Nam</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger px-3 py-2">Nữ</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4 text-muted">Ngày sinh:</dt>
+                        <dd class="col-sm-8">
+                            @(Model.NtdBirthDay.HasValue ? Model.NtdBirthDay.Value.ToString("dd/MM/yyyy") : "—")
+                        </dd>
+
+                        <dt class="col-sm-4 text-muted">Email:</dt>
+                        <dd class="col-sm-8">
+                            @if (!string.IsNullOrEmpty(Model.NtdEmail))
+                            {
+                                <a href="mailto:@Model.NtdEmail" class="text-decoration-none">@Model.NtdEmail</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">—</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4 text-muted">Số điện thoại:</dt>
+                        <dd class="col-sm-8">
+                            @(!string.IsNullOrEmpty(Model.NtdPhone) ? Model.NtdPhone : "—")
+                        </dd>
+
+                        <dt class="col-sm-4 text-muted">Trạng thái:</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.NtdActive)
+                            {
+                                <span class="badge bg-success px-3 py-2">Đang học</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary px-3 py-2">Tạm dừng</span>
+                            }
+                        </dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-between pt-4 mt-3 border-top">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            &larr; Quay lại danh sách
+                        </a>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2 text-dark">
+                                Sửa thông tin
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                                Xóa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
