@@ -1,0 +1,85 @@
+@model NtdLesson12_EF.Models.NtdProduct
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary fw-bold">Chỉnh sửa sản phẩm</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-8 col-lg-7">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreatedDate" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label fw-semibold"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CategoryId" class="form-label fw-semibold"></label>
+                    <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">Hình ảnh hiện tại</label>
+                    <div class="mb-2">
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <img src="~/Product/@Model.Image" alt="@Model.Name" class="rounded shadow-sm" style="width: 100px; height: 100px; object-fit: cover;" onerror="this.src='https://placehold.co/100x100?text=No+Img'" />
+                        }
+                        else
+                        {
+                            <span class="text-muted">Chưa có ảnh</span>
+                        }
+                    </div>
+                    <label class="form-label fw-semibold">Chọn ảnh mới (nếu muốn thay đổi)</label>
+                    <input type="file" name="Image" class="form-control" accept="image/*" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="Price" class="form-label fw-semibold"></label>
+                        <input asp-for="Price" type="number" step="any" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="SalePrice" class="form-label fw-semibold"></label>
+                        <input asp-for="SalePrice" type="number" step="any" class="form-control" />
+                        <span asp-validation-for="SalePrice" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Status" class="form-label fw-semibold"></label>
+                    <select asp-for="Status" class="form-select">
+                        <option value="1">1 - Đang bán</option>
+                        <option value="0">0 - Tạm ẩn / Hết hàng</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Descriptions" class="form-label fw-semibold"></label>
+                    <textarea asp-for="Descriptions" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="Descriptions" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="submit" value="Cập nhật" class="btn btn-sm btn-success px-3" />
+                    <a class="btn btn-sm btn-danger ms-2 px-3" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

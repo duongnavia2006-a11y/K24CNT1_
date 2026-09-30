@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NtdLesson12_EF</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NtdLesson12_EF.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand fw-bold text-warning" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-code-slash"></i> NtdLesson12_EF
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ntdNavbar" aria-controls="ntdNavbar"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="ntdNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-door"></i> Trang chủ
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Product">
+                                <i class="bi bi-grid-3x3-gap"></i> Xem Sản Phẩm
+                            </a>
+                        </li>
+                        
+                        <!-- Dropdown Bán hàng theo Lab 06 -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bag-check"></i> Quản Lý Bán Hàng
+                            </a>
+                            <ul class="dropdown-menu shadow" aria-labelledby="dropdownShop">
+                                <li><a class="dropdown-item" asp-controller="NtdCategories" asp-action="Index"><i class="bi bi-tags"></i> Danh mục (Category)</a></li>
+                                <li><a class="dropdown-item" asp-controller="NtdProducts" asp-action="Index"><i class="bi bi-box-seam"></i> Sản phẩm (Product)</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="NtdBanners" asp-action="Index"><i class="bi bi-card-image"></i> Banner (Carousel)</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Dropdown Quản lý Sinh viên (Bài 5 & 6) -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownStudent" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-mortarboard"></i> Student Manager
+                            </a>
+                            <ul class="dropdown-menu shadow" aria-labelledby="dropdownStudent">
+                                <li><a class="dropdown-item" asp-controller="NtdStdClasses" asp-action="Index"><i class="bi bi-building"></i> Lớp học (StdClass)</a></li>
+                                <li><a class="dropdown-item" asp-controller="NtdStudents" asp-action="Index"><i class="bi bi-people"></i> Sinh viên (Student)</a></li>
+                                <li><a class="dropdown-item" asp-controller="NtdSubjects" asp-action="Index"><i class="bi bi-journal-bookmark"></i> Môn học (Subjects)</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="NtdMarks" asp-action="Index"><i class="bi bi-award"></i> Bảng điểm (Marks)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="navbar-text text-light small">
+                        <span class="badge bg-primary me-2">Hvt: Ntd</span>
+                        <span class="badge bg-secondary">DB: NETCORE</span>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-5">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted bg-light py-3 mt-auto">
+        <div class="container text-center">
+            &copy; 2026 - <strong>NtdLesson12_EF</strong> - Thực hành Entity Framework Core | Sinh viên: <strong>Ntd</strong> | Server SQL: <strong>DUONG</strong> | Database: <strong>NETCORE</strong>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

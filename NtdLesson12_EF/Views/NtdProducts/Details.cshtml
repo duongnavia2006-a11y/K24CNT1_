@@ -1,0 +1,66 @@
+@model NtdLesson12_EF.Models.NtdProduct
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary fw-bold">Chi tiết sản phẩm</h2>
+    <hr />
+    <div class="card col-md-8 shadow-sm">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-center mb-3">
+                    @if (!string.IsNullOrEmpty(Model.Image))
+                    {
+                        <img src="~/Product/@Model.Image" alt="@Model.Name" class="img-fluid rounded shadow-sm border" style="max-height: 250px; object-fit: cover;" onerror="this.src='https://placehold.co/250x250?text=No+Img'" />
+                    }
+                    else
+                    {
+                        <img src="https://placehold.co/250x250?text=No+Img" alt="No image" class="img-fluid rounded border" />
+                    }
+                </div>
+                <div class="col-md-8">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 fw-bold">Mã sản phẩm</dt>
+                        <dd class="col-sm-8">@Model.Id</dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Name)</dt>
+                        <dd class="col-sm-8 fw-semibold text-primary">@Model.Name</dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Category)</dt>
+                        <dd class="col-sm-8"><span class="badge bg-info text-dark">@(Model.Category?.Name ?? "Chưa phân loại")</span></dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Price)</dt>
+                        <dd class="col-sm-8 text-danger fw-bold">@Model.Price.ToString("N0") đ</dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.SalePrice)</dt>
+                        <dd class="col-sm-8 text-success">@(Model.SalePrice > 0 ? Model.SalePrice.ToString("N0") + " đ" : "-")</dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Status)</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.Status == 1)
+                            {
+                                <span class="badge bg-success">Đang bán</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Hết hàng</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.CreatedDate)</dt>
+                        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+                        <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Descriptions)</dt>
+                        <dd class="col-sm-8 text-muted">@(string.IsNullOrEmpty(Model.Descriptions) ? "Chưa có mô tả" : Model.Descriptions)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Chỉnh sửa</a>
+            <a class="btn btn-sm btn-secondary ms-2" asp-action="Index">Quay lại danh sách</a>
+        </div>
+    </div>
+</div>

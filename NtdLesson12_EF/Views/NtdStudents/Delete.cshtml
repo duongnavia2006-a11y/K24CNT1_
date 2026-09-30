@@ -1,0 +1,33 @@
+@model NtdLesson12_EF.Models.NtdStudent
+
+@{
+    ViewData["Title"] = "Xóa sinh viên";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger fw-bold">Xác nhận xóa sinh viên</h2>
+    <div class="alert alert-warning col-md-6" role="alert">
+        Bạn có chắc chắn muốn xóa sinh viên này khỏi hệ thống?
+    </div>
+    <div class="card col-md-6 border-danger shadow-sm">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4 fw-bold">Họ và tên</dt>
+                <dd class="col-sm-8 text-danger fw-semibold">@Model.StudentName</dd>
+
+                <dt class="col-sm-4 fw-bold">Email</dt>
+                <dd class="col-sm-8">@Model.StudentEmail</dd>
+
+                <dt class="col-sm-4 fw-bold">Số điện thoại</dt>
+                <dd class="col-sm-8">@Model.StudentPhone</dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Xóa" class="btn btn-sm btn-danger px-3" />
+                <a class="btn btn-sm btn-secondary ms-2 px-3" asp-action="Index">Hủy bỏ</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,207 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace NtdLesson12_EF.Migrations
+{
+    /// <inheritdoc />
+    public partial class NtdInitDB : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Banner",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<byte>(type: "tinyint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Banner", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Status = table.Column<byte>(type: "tinyint", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StdClass",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClassName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StdClass", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Subjects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SubjectName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Subjects", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Product",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Image = table.Column<string>(type: "varchar(150)", nullable: true),
+                    Price = table.Column<float>(type: "real", nullable: false),
+                    SalePrice = table.Column<float>(type: "real", nullable: false),
+                    Status = table.Column<byte>(type: "tinyint", nullable: false),
+                    Descriptions = table.Column<string>(type: "ntext", maxLength: 1000, nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Product_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Student",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    StudentEmail = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    StudentPhone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    StudentAddress = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    StudentAvatar = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    StudentBirthday = table.Column<DateTime>(type: "date", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Student", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Student_StdClass_ClassId",
+                        column: x => x.ClassId,
+                        principalTable: "StdClass",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Marks",
+                columns: table => new
+                {
+                    SubjectId = table.Column<int>(type: "int", nullable: false),
+                    StudentId = table.Column<int>(type: "int", nullable: false),
+                    Score = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Marks", x => new { x.SubjectId, x.StudentId });
+                    table.ForeignKey(
+                        name: "FK_Marks_Student_StudentId",
+                        column: x => x.StudentId,
+                        principalTable: "Student",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Marks_Subjects_SubjectId",
+                        column: x => x.SubjectId,
+                        principalTable: "Subjects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Marks_StudentId",
+                table: "Marks",
+                column: "StudentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_CategoryId",
+                table: "Product",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Student_ClassId",
+                table: "Student",
+                column: "ClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Student_StudentEmail",
+                table: "Student",
+                column: "StudentEmail",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Student_StudentPhone",
+                table: "Student",
+                column: "StudentPhone",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Subjects_SubjectName",
+                table: "Subjects",
+                column: "SubjectName",
+                unique: true);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Banner");
+
+            migrationBuilder.DropTable(
+                name: "Marks");
+
+            migrationBuilder.DropTable(
+                name: "Product");
+
+            migrationBuilder.DropTable(
+                name: "Student");
+
+            migrationBuilder.DropTable(
+                name: "Subjects");
+
+            migrationBuilder.DropTable(
+                name: "Category");
+
+            migrationBuilder.DropTable(
+                name: "StdClass");
+        }
+    }
+}

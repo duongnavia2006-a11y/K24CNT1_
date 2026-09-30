@@ -1,0 +1,47 @@
+@model NtdLesson12_EF.Models.NtdProduct
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger fw-bold">Xác nhận xóa sản phẩm</h2>
+    <div class="alert alert-warning col-md-8" role="alert">
+        Bạn có chắc chắn muốn xóa sản phẩm này khỏi hệ thống?
+    </div>
+    <div class="card col-md-8 shadow-sm border-danger">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 text-center mb-3">
+                    @if (!string.IsNullOrEmpty(Model.Image))
+                    {
+                        <img src="~/Product/@Model.Image" alt="@Model.Name" class="img-fluid rounded border" style="max-height: 120px; object-fit: cover;" onerror="this.src='https://placehold.co/120x120?text=No+Img'" />
+                    }
+                    else
+                    {
+                        <img src="https://placehold.co/120x120?text=No+Img" alt="No image" class="img-fluid rounded border" />
+                    }
+                </div>
+                <div class="col-md-9">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 fw-bold">Tên sản phẩm</dt>
+                        <dd class="col-sm-8 text-danger fw-semibold">@Model.Name</dd>
+
+                        <dt class="col-sm-4 fw-bold">Danh mục</dt>
+                        <dd class="col-sm-8">@(Model.Category?.Name ?? "Chưa phân loại")</dd>
+
+                        <dt class="col-sm-4 fw-bold">Giá</dt>
+                        <dd class="col-sm-8">@Model.Price.ToString("N0") đ</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Xóa" class="btn btn-sm btn-danger px-3" />
+                <a class="btn btn-sm btn-secondary ms-2 px-3" asp-action="Index">Hủy bỏ</a>
+            </form>
+        </div>
+    </div>
+</div>

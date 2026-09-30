@@ -1,0 +1,26 @@
+@model NtdLesson12_EF.Models.NtdSubject
+
+@{
+    ViewData["Title"] = "Xóa môn học";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger fw-bold">Xác nhận xóa môn học</h2>
+    <div class="card col-md-5 border-danger shadow-sm mt-3">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Mã môn</dt>
+                <dd class="col-sm-8">@Model.Id</dd>
+                <dt class="col-sm-4">Tên môn</dt>
+                <dd class="col-sm-8 text-primary fw-semibold">@Model.SubjectName</dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Xóa" class="btn btn-sm btn-danger px-3" />
+                <a class="btn btn-sm btn-secondary ms-2 px-3" asp-action="Index">Hủy bỏ</a>
+            </form>
+        </div>
+    </div>
+</div>

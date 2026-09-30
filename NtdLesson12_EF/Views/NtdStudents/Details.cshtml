@@ -1,0 +1,66 @@
+@model NtdLesson12_EF.Models.NtdStudent
+
+@{
+    ViewData["Title"] = "Chi tiết sinh viên";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary fw-bold">Hồ sơ sinh viên</h2>
+    <hr />
+    <div class="card col-md-8 shadow-sm">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4 fw-bold">Mã sinh viên</dt>
+                <dd class="col-sm-8">@Model.Id</dd>
+
+                <dt class="col-sm-4 fw-bold">Họ và tên</dt>
+                <dd class="col-sm-8 text-primary fw-semibold">@Model.StudentName</dd>
+
+                <dt class="col-sm-4 fw-bold">Lớp học</dt>
+                <dd class="col-sm-8"><span class="badge bg-info text-dark">@(Model.StdClass?.ClassName ?? "Chưa có")</span></dd>
+
+                <dt class="col-sm-4 fw-bold">Email</dt>
+                <dd class="col-sm-8">@Model.StudentEmail</dd>
+
+                <dt class="col-sm-4 fw-bold">Số điện thoại</dt>
+                <dd class="col-sm-8">@Model.StudentPhone</dd>
+
+                <dt class="col-sm-4 fw-bold">Địa chỉ</dt>
+                <dd class="col-sm-8">@Model.StudentAddress</dd>
+
+                <dt class="col-sm-4 fw-bold">Ngày sinh</dt>
+                <dd class="col-sm-8">@Model.StudentBirthday.ToString("dd/MM/yyyy")</dd>
+            </dl>
+
+            <h6 class="fw-bold mt-4 border-top pt-3">Bảng điểm các môn học:</h6>
+            @if (Model.Marks != null && Model.Marks.Any())
+            {
+                <table class="table table-sm table-bordered mt-2">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Môn học</th>
+                            <th class="text-center" style="width: 100px;">Điểm số</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var m in Model.Marks)
+                        {
+                            <tr>
+                                <td>@(m.Subject?.SubjectName ?? $"Môn #{m.SubjectId}")</td>
+                                <td class="text-center fw-bold @(m.Score >= 5 ? "text-success" : "text-danger")">@m.Score</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted small">Chưa có bản ghi điểm nào.</p>
+            }
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Chỉnh sửa</a>
+            <a class="btn btn-sm btn-secondary ms-2" asp-action="Index">Quay lại danh sách</a>
+        </div>
+    </div>
+</div>

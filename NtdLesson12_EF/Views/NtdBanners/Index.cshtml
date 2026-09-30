@@ -1,0 +1,70 @@
+@model IEnumerable<NtdLesson12_EF.Models.NtdBanner>
+
+@{
+    ViewData["Title"] = "Quản lý Banner";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary fw-bold">Danh sách Banner</h2>
+        <a class="btn btn-sm btn-success" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Thêm mới Banner
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th class="text-center" style="width: 140px;">Hình ảnh</th>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th class="text-center">@Html.DisplayNameFor(model => model.Status)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedDate)</th>
+                <th class="text-center" style="width: 200px;">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @if (!string.IsNullOrEmpty(item.Image))
+                            {
+                                <img src="~/Banner/@item.Image" alt="@item.Name" class="rounded shadow-sm" style="width: 120px; height: 60px; object-fit: cover;" onerror="this.src='https://placehold.co/120x60?text=Banner'" />
+                            }
+                            else
+                            {
+                                <span class="text-muted">Chưa có ảnh</span>
+                            }
+                        </td>
+                        <td class="fw-semibold">@item.Name</td>
+                        <td>@item.Description</td>
+                        <td class="text-center">
+                            @if (item.Status == 1)
+                            {
+                                <span class="badge bg-success">Hiển thị</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Tạm ẩn</span>
+                            }
+                        </td>
+                        <td>@item.CreatedDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted py-4">Chưa có banner nào. Hãy tạo banner để hiển thị trên trang chủ!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

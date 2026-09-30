@@ -1,0 +1,29 @@
+@model NtdLesson12_EF.Models.NtdMark
+
+@{
+    ViewData["Title"] = "Xóa điểm môn học";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger fw-bold">Xác nhận xóa điểm</h2>
+    <div class="card col-md-6 border-danger shadow-sm mt-3">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Sinh viên</dt>
+                <dd class="col-sm-8 fw-semibold text-primary">@(Model.Student?.StudentName ?? $"SV #{Model.StudentId}")</dd>
+                <dt class="col-sm-4">Môn học</dt>
+                <dd class="col-sm-8">@(Model.Subject?.SubjectName ?? $"Môn #{Model.SubjectId}")</dd>
+                <dt class="col-sm-4">Điểm số</dt>
+                <dd class="col-sm-8 fw-bold text-danger">@Model.Score</dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <form asp-action="Delete">
+                <input type="hidden" name="subjectId" value="@Model.SubjectId" />
+                <input type="hidden" name="studentId" value="@Model.StudentId" />
+                <input type="submit" value="Xóa" class="btn btn-sm btn-danger px-3" />
+                <a class="btn btn-sm btn-secondary ms-2 px-3" asp-action="Index">Hủy bỏ</a>
+            </form>
+        </div>
+    </div>
+</div>
