@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - NtdLesson13</title>
+    <link href="/css/NtdLayoutHome.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <div id="navbar">
+            <ul>
+                <li><a href="/Products/Index">Danh sách sản phẩm</a></li>
+                <li><a href="/Products/Search">Tìm kiếm sản phẩm</a></li>
+                <li><a href="/Products/Hots">Danh sách bán chạy</a></li>
+                <li><a href="/Products/About">Giới thiệu</a></li>
+            </ul>
+        </div>
+        <hr />
+        <div class="content">
+            @RenderSection("S1", required: false)
+
+            @RenderBody()
+        </div>
+        <hr />
+        <div class="footer">
+            <p style="text-align:center">Copyright &copy; 2020 - NtdLesson13 (Nguyễn Tùng Dương)</p>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/NtdLayoutHome.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("S2", required: false)
+</body>
+</html>

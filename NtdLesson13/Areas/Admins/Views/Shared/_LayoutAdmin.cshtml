@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admins Portal (NtdLesson13)</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+        }
+        .admin-sidebar {
+            min-height: 100vh;
+            background-color: #212529;
+            color: #fff;
+        }
+        .admin-sidebar a {
+            color: #c2c7d0;
+            text-decoration: none;
+            display: block;
+            padding: 12px 20px;
+            border-bottom: 1px solid #2c3136;
+        }
+        .admin-sidebar a:hover, .admin-sidebar a.active {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+        .admin-header {
+            background: #fff;
+            padding: 15px 25px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .admin-content {
+            padding: 25px;
+        }
+        .admin-footer {
+            background: #fff;
+            padding: 15px;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Admin -->
+            <nav class="col-md-3 col-lg-2 d-md-block admin-sidebar px-0">
+                <div class="p-3 text-center border-bottom border-secondary">
+                    <h5 class="text-white mb-0">Hệ Thống Quản Trị</h5>
+                    <small class="text-muted">HVT: Nguyễn Tùng Dương (Ntd)</small>
+                </div>
+                <div class="py-2">
+                    <a href="/Admins" class="active">📊 Tổng quan (Dashboard)</a>
+                    <a href="/Products/Index">🛍️ Xem Trang Sản phẩm (Customer)</a>
+                    <a href="/">🏠 Trang chủ Website</a>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-0">
+                <header class="admin-header d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">@ViewData["Title"]</h4>
+                    <span class="badge bg-primary">Admin: NtdLesson13</span>
+                </header>
+
+                <div class="admin-content">
+                    @RenderBody()
+                </div>
+
+                <footer class="admin-footer text-muted">
+                    Copyright &copy; 2026 - NtdLesson13 - Nguyễn Tùng Dương
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
