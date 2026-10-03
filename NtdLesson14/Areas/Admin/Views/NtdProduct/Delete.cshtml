@@ -1,0 +1,6 @@
+@model NtdProduct
+@{ ViewData["Title"] = "Xóa sản phẩm"; }
+<section class="ntd-panel ntd-delete-card"><h2>Xác nhận xóa sản phẩm</h2><p>Bạn có chắc chắn muốn xóa mục này không?</p>
+    <dl><dt>Mã</dt><dd>@Model.NtdId</dd><dt>Tên</dt><dd>@Model.NtdName</dd><dt>Giá bán</dt><dd>@Model.NtdPrice.ToString("N0")</dd><dt>Mã danh mục</dt><dd>@Model.NtdCategoryId</dd><dt>Mô tả</dt><dd>@Model.NtdDescription</dd></dl>
+    <form asp-action="Delete" asp-route-id="@Model.NtdId" method="post"><input asp-for="NtdId" type="hidden" /><div class="ntd-form-actions"><button class="ntd-admin-button ntd-admin-button-danger" type="submit">Xóa</button><a class="ntd-admin-button ntd-admin-button-secondary" asp-action="Index">Hủy</a></div></form>
+</section>

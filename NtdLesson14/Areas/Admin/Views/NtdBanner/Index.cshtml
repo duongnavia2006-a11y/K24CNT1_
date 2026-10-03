@@ -1,0 +1,8 @@
+@model IEnumerable<NtdBanner>
+@{ ViewData["Title"] = "Biểu ngữ"; }
+<section class="ntd-panel ntd-data-panel"><div class="ntd-data-toolbar"><h2>Danh sách banner</h2><a class="ntd-admin-button" asp-action="Create">+ Thêm banner</a></div><div class="ntd-table-wrap"><table class="ntd-admin-table"><thead><tr><th>Mã</th><th>Tên</th><th>Trạng thái</th><th>Thứ tự</th><th>Hình ảnh</th><th>Mô tả</th><th>Thao tác</th></tr></thead><tbody>
+@foreach (var ntdBanner in Model)
+{
+    <tr><td>@ntdBanner.NtdId</td><td>@ntdBanner.NtdName</td><td><span class="ntd-status @(ntdBanner.NtdStatus == 1 ? "" : "ntd-status-off")">@(ntdBanner.NtdStatus == 1 ? "Đang hiện" : "Đã ẩn")</span></td><td>@ntdBanner.NtdPrioty</td><td>@ntdBanner.NtdImage</td><td>@ntdBanner.NtdDescription</td><td><div class="ntd-actions"><a class="ntd-admin-button ntd-admin-button-warning" asp-action="Edit" asp-route-id="@ntdBanner.NtdId">Sửa</a><a class="ntd-admin-button ntd-admin-button-danger" asp-action="Delete" asp-route-id="@ntdBanner.NtdId">Xóa</a></div></td></tr>
+}
+</tbody></table></div></section>

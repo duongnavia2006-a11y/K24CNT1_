@@ -1,0 +1,11 @@
+@model IEnumerable<NtdProduct>
+@{ ViewData["Title"] = "Sản phẩm"; }
+<section class="ntd-panel ntd-data-panel">
+    <div class="ntd-data-toolbar"><h2>Danh sách sản phẩm</h2><a class="ntd-admin-button" asp-action="Create">+ Thêm sản phẩm</a></div>
+    <div class="ntd-table-wrap"><table class="ntd-admin-table"><thead><tr><th>Mã</th><th>Tên</th><th>Giá bán</th><th>Giá khuyến mãi</th><th>Trạng thái</th><th>Mã danh mục</th><th>Ngày tạo</th><th>Hình ảnh</th><th>Mô tả</th><th>Thao tác</th></tr></thead><tbody>
+    @foreach (var ntdProduct in Model)
+    {
+        <tr><td>@ntdProduct.NtdId</td><td>@ntdProduct.NtdName</td><td>@ntdProduct.NtdPrice.ToString("N0")</td><td>@ntdProduct.NtdSalePrice.ToString("N0")</td><td><span class="ntd-status @(ntdProduct.NtdStatus == 1 ? "" : "ntd-status-off")">@(ntdProduct.NtdStatus == 1 ? "Đang hiện" : "Đã ẩn")</span></td><td>@ntdProduct.NtdCategoryId</td><td>@ntdProduct.NtdCreatedDate.ToString("yyyy-MM-dd")</td><td>@ntdProduct.NtdImage</td><td>@ntdProduct.NtdDescription</td><td><div class="ntd-actions"><a class="ntd-admin-button ntd-admin-button-warning" asp-action="Edit" asp-route-id="@ntdProduct.NtdId">Sửa</a><a class="ntd-admin-button ntd-admin-button-danger" asp-action="Delete" asp-route-id="@ntdProduct.NtdId">Xóa</a></div></td></tr>
+    }
+    </tbody></table></div>
+</section>

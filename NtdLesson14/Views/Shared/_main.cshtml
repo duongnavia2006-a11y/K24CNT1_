@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bistup</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/ntd-public.css" asp-append-version="true" />
+    @await RenderSectionAsync("Css", required: false)
+</head>
+<body class="ntd-public">
+    <header>
+        <div class="ntd-topbar">
+            <div class="ntd-site-width ntd-topbar-inner">
+                <nav aria-label="Liên kết nhanh">
+                    <a asp-controller="NtdHome" asp-action="About">Giới thiệu</a>
+                    <a asp-controller="NtdHome" asp-action="Contact">Liên hệ</a>
+                    <a href="#login">Đăng nhập</a>
+                    <a href="#register">Đăng ký</a>
+                </nav>
+                <div class="ntd-social"><span>f</span><span>♥</span><span>◎</span><span>in</span></div>
+            </div>
+        </div>
+        <div class="ntd-brandbar ntd-site-width">
+            <a class="ntd-brand" asp-controller="NtdHome" asp-action="Index" aria-label="Bistup trang chủ">Bistup<span>.</span><small>doanh nghiệp sáng tạo</small></a>
+            <div class="ntd-brand-info"><span class="ntd-brand-icon">☎</span><span><b>Gọi cho chúng tôi:</b><small>+00 (123) 456 7890</small></span></div>
+            <div class="ntd-brand-info"><span class="ntd-brand-icon">◷</span><span><b>Thứ Hai - Thứ Bảy:</b><small>08:00 - 18:00</small></span></div>
+            <button class="ntd-language" type="button">Ngôn ngữ <span>⌄</span></button>
+        </div>
+        <nav class="ntd-main-nav" aria-label="Điều hướng chính">
+            <div class="ntd-site-width ntd-main-nav-inner">
+                <button class="ntd-menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+                <div class="ntd-nav-links">
+                    <a class="active" asp-controller="NtdHome" asp-action="Index">TRANG CHỦ</a>
+                    <a href="#introblocks">DANH MỤC <span>⌄</span></a>
+                    <a href="#introblocks">GIỚI THIỆU</a>
+                    <a href="#overview">SẢN PHẨM</a>
+                    <a href="#overview">TIN TỨC</a>
+                    <a href="#footer">LIÊN HỆ</a>
+                </div>
+                <a class="ntd-search" href="#search" aria-label="Tìm kiếm">⌕</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>@RenderBody()</main>
+
+    <footer class="ntd-footer" id="footer">
+        <div class="ntd-site-width ntd-footer-grid">
+            <div><a class="ntd-brand ntd-brand-footer" asp-controller="NtdHome" asp-action="Index">Bistup<span>.</span><small>doanh nghiệp sáng tạo</small></a><p>Đồng hành cùng bạn với những sản phẩm và dịch vụ chất lượng.</p></div>
+            <div><h2>THÔNG TIN LIÊN HỆ</h2><p>Số nhà, tên đường<br />Thành phố, mã bưu chính<br />+00 (123) 456 7890</p></div>
+            <div><h2>LIÊN KẾT NHANH</h2><a asp-controller="NtdHome" asp-action="About">Giới thiệu</a><a asp-controller="NtdHome" asp-action="Contact">Liên hệ</a><a href="/Admin">Trang quản trị</a></div>
+            <div><h2>KẾT NỐI VỚI CHÚNG TÔI</h2><p>Đăng ký nhận tin mới</p><form class="ntd-newsletter"><label class="visually-hidden" for="ntd-email">Địa chỉ thư điện tử</label><input id="ntd-email" type="email" placeholder="Địa chỉ thư điện tử" /><button type="button">ĐĂNG KÝ</button></form></div>
+        </div>
+        <div class="ntd-footer-bottom"><div class="ntd-site-width"><span>Bản quyền © 2026 - NtdLesson14</span><a asp-controller="NtdHome" asp-action="Privacy">Chính sách bảo mật</a></div></div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/ntd-public.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

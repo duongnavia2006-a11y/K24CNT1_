@@ -1,0 +1,15 @@
+@model NtdCategory
+@{ ViewData["Title"] = "Thêm danh mục"; }
+<section class="ntd-panel ntd-form-panel"><h2>Thêm danh mục</h2>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="ntd-validation-summary"></div>
+        <div class="ntd-form-grid">
+            <div class="ntd-form-field"><label asp-for="NtdName"></label><input asp-for="NtdName" /><span asp-validation-for="NtdName" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdStatus"></label><select asp-for="NtdStatus"><option value="1">Đang hiện</option><option value="0">Đã ẩn</option></select><span asp-validation-for="NtdStatus" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdCreatedDate"></label><input asp-for="NtdCreatedDate" type="date" /><span asp-validation-for="NtdCreatedDate" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdImage"></label><input asp-for="NtdImage" /><span asp-validation-for="NtdImage" class="ntd-validation"></span></div>
+            <div class="ntd-form-field" style="grid-column:1/-1"><label asp-for="NtdDescription"></label><textarea asp-for="NtdDescription"></textarea><span asp-validation-for="NtdDescription" class="ntd-validation"></span></div>
+        </div>
+        <div class="ntd-form-actions"><button class="ntd-admin-button" type="submit">Lưu</button><a class="ntd-admin-button ntd-admin-button-secondary" asp-action="Index">Quay lại</a></div>
+    </form>
+</section>

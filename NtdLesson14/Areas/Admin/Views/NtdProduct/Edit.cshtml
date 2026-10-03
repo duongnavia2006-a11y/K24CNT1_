@@ -1,0 +1,17 @@
+@model NtdProduct
+@{ ViewData["Title"] = "Sửa sản phẩm"; }
+<section class="ntd-panel ntd-form-panel"><h2>Sửa sản phẩm #@Model.NtdId</h2>
+    <form asp-action="Edit" asp-route-id="@Model.NtdId" method="post"><input asp-for="NtdId" type="hidden" /><div asp-validation-summary="ModelOnly" class="ntd-validation-summary"></div>
+        <div class="ntd-form-grid">
+            <div class="ntd-form-field"><label asp-for="NtdName"></label><input asp-for="NtdName" /><span asp-validation-for="NtdName" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdCategoryId"></label><select asp-for="NtdCategoryId" asp-items="ViewBag.NtdCategoryOptions"><option value="">-- Chọn danh mục --</option></select><span asp-validation-for="NtdCategoryId" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdPrice"></label><input asp-for="NtdPrice" type="number" min="0.01" step="0.01" /><span asp-validation-for="NtdPrice" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdSalePrice"></label><input asp-for="NtdSalePrice" type="number" min="0" step="0.01" /><span asp-validation-for="NtdSalePrice" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdStatus"></label><select asp-for="NtdStatus"><option value="1">Đang hiện</option><option value="0">Đã ẩn</option></select><span asp-validation-for="NtdStatus" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdCreatedDate"></label><input asp-for="NtdCreatedDate" type="date" /><span asp-validation-for="NtdCreatedDate" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdImage"></label><input asp-for="NtdImage" /><span asp-validation-for="NtdImage" class="ntd-validation"></span></div>
+            <div class="ntd-form-field"><label asp-for="NtdDescription"></label><textarea asp-for="NtdDescription"></textarea><span asp-validation-for="NtdDescription" class="ntd-validation"></span></div>
+        </div>
+        <div class="ntd-form-actions"><button class="ntd-admin-button" type="submit">Lưu thay đổi</button><a class="ntd-admin-button ntd-admin-button-secondary" asp-action="Index">Quay lại</a></div>
+    </form>
+</section>

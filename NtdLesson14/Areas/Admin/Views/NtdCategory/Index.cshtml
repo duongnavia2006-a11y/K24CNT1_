@@ -1,0 +1,11 @@
+@model IEnumerable<NtdCategory>
+@{ ViewData["Title"] = "Danh mục"; }
+<section class="ntd-panel ntd-data-panel">
+    <div class="ntd-data-toolbar"><h2>Danh sách danh mục</h2><a class="ntd-admin-button" asp-action="Create">+ Thêm danh mục</a></div>
+    <div class="ntd-table-wrap"><table class="ntd-admin-table"><thead><tr><th>Mã</th><th>Tên</th><th>Trạng thái</th><th>Ngày tạo</th><th>Hình ảnh</th><th>Mô tả</th><th>Thao tác</th></tr></thead><tbody>
+    @foreach (var ntdCategory in Model)
+    {
+        <tr><td>@ntdCategory.NtdId</td><td>@ntdCategory.NtdName</td><td><span class="ntd-status @(ntdCategory.NtdStatus == 1 ? "" : "ntd-status-off")">@(ntdCategory.NtdStatus == 1 ? "Đang hiện" : "Đã ẩn")</span></td><td>@ntdCategory.NtdCreatedDate.ToString("yyyy-MM-dd")</td><td>@ntdCategory.NtdImage</td><td>@ntdCategory.NtdDescription</td><td><div class="ntd-actions"><a class="ntd-admin-button ntd-admin-button-warning" asp-action="Edit" asp-route-id="@ntdCategory.NtdId">Sửa</a><a class="ntd-admin-button ntd-admin-button-danger" asp-action="Delete" asp-route-id="@ntdCategory.NtdId">Xóa</a></div></td></tr>
+    }
+    </tbody></table></div>
+</section>

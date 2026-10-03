@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bảng quản trị</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/ntd-admin.css" asp-append-version="true" />
+    @await RenderSectionAsync("Css", required: false)
+</head>
+<body class="ntd-admin">
+    <header class="ntd-admin-topbar">
+        <a class="ntd-admin-logo" href="/Admin"><span>Ntd</span> AdminLTE</a>
+        <button class="ntd-sidebar-toggle" type="button" aria-label="Thu gọn thanh bên">☰</button>
+        <nav class="ntd-admin-toplinks"><a href="/">Trang chủ</a><a href="/Admin/Category">Danh mục</a><span>Quản trị</span></nav>
+    </header>
+    <div class="ntd-admin-shell">
+        <aside class="ntd-sidebar"><div class="ntd-admin-profile"><span class="ntd-avatar">N</span><span>Quản trị viên Ntd</span></div>@await Component.InvokeAsync("NtdNavLeft")</aside>
+        <main class="ntd-admin-main">
+            <div class="ntd-admin-title"><div><h1>@ViewData["Title"]</h1><p>Bảng quản trị <span>/</span> @ViewData["Title"]</p></div><a href="/" class="ntd-return-site">Xem trang chủ ↗</a></div>
+            @if (TempData["NtdSuccessMessage"] is string ntdSuccessMessage)
+            {
+                <div class="ntd-alert-success" role="status">@ntdSuccessMessage</div>
+            }
+            @if (TempData["NtdErrorMessage"] is string ntdErrorMessage)
+            {
+                <div class="ntd-alert-success" role="alert">@ntdErrorMessage</div>
+            }
+            @RenderBody()
+            <footer class="ntd-admin-footer"><strong>NtdLesson14</strong> · Bảng quản trị theo giao diện AdminLTE 3</footer>
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/ntd-admin.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

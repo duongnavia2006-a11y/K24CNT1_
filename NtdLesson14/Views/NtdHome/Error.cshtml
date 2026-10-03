@@ -1,0 +1,3 @@
+@model NtdErrorViewModel
+@{ ViewData["Title"] = "Đã xảy ra lỗi"; }
+<section class="ntd-page-content"><h1>Đã xảy ra lỗi.</h1><p>Vui lòng thử lại sau.</p>@if (Model.NtdShowRequestId){<p>Mã yêu cầu: <code>@Model.NtdRequestId</code></p>}</section>
